@@ -1,0 +1,48 @@
+<div class="container">
+    <p class="nancy"> <img src="pictures/icon.jpeg" width="25"></p>
+    <p class="logout">LOGOUT</p>
+    <h1>GIPT-HEALTH* </h1>
+    <img src="pictures/logo.jpeg" width="100">
+    <h4>create account!</h4>
+    <form action="/here" method="">
+        <div class="names">
+            <div>
+                <label>Name</label>
+                <input type"text" name="firstN" placeholder="enter firstname" value="{{formBody.firstN}}">
+            </div>
+            <div>
+                <label>Surname</label>
+                <input type="text" name="lastN" placeholder="enter lastname" value="{{formBody.lastN}}">
+            </div>
+
+        </div>
+        <div>
+            <label>ID Number</label>
+            <input type="text" placeholder="Enter ID number" name="ID" value="{{formBody.ID}}">
+        </div>
+        <div>
+            <div>
+                <label>Tel</label>
+                <input type="tel" name="telNo" {{formBody.telNo}}>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" value="{{formBody.email}}" placeholder="enter email">
+            </div>
+        </div>
+        <div>
+            Address
+        <Address width="25%">
+            <input type="text" name="" placeholder="enter street number and name">
+            <br>
+            <input type="text" name="" placeholder="enter surburb">
+            <br>
+            <input>
+            <br>
+            <input type="number" name="" placeholder="enter postal code">
+        </Address>
+            </div>
+            <button type="submit" name="btn">create</button>
+    </form>
+
+</div>

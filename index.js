@@ -1,10 +1,10 @@
 let express = require('express');
 let app = express();
-const exphbs  = require('express-handlebars');
+const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -12,26 +12,57 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.get("/", function(req, res){
+app.get("/", function (req, res) {
   res.render("index");
 });
-app.get("/patient", function(req, res){
-    res.render("patient");
-  });
-  app.post("/patient", function(req, res){
-    res.redirect("patient");
-  });
-  app.get("/page", function(req, res){
-    res.render("page-one");
-  });
-  app.get("/page2", function(req, res){
-    res.render("page-two");
-  });
-  
+app.get("/patient", function (req, res) {
+  res.render("patient");
+});
+app.post("/patient", function (req, res) {
+  res.redirect("patient");
+});
+app.get("/page", function (req, res) {
+  res.render("page-one");
+});
+app.get("/page2", function (req, res) {
+  res.render("page-two");
+});
+app.get('/here', function (req, res) {
+  res.render('signup')
 
 
-let PORT = process.env.PORT || 3007;
+})
+// Handle the appointment form submission
+app.post('/medication1', function (req, res) {
+  var formBody = {
+    'name': req.body.first,
+    'surname': req.body.last,
+    'ID': req.body.id,
+    'email': req.body.email,
+    'contact': req.body.telNo,
+    'Reason': req.body.reason,
+    'time': req.body.time,
+    'date': req.body.date
 
-app.listen(PORT, function(){
+  };
+
+  console.log(formBody);
+
+  res.render('page-one', {
+    formBody,
+   
+  });
+});
+// app.get('/here', function(req,res){
+//   res.send(req.body.firstN)
+//   res.redirect('/page')
+
+// })
+
+
+
+let PORT = process.env.PORT || 3008;
+
+app.listen(PORT, function () {
   console.log('App starting on port', PORT);
 });
